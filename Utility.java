@@ -43,4 +43,10 @@ public class Utility
             return true;
         }
     }
+    
+    public static boolean isPalindrome (int n){
+    	String numberString = Integer.toString(n);
+    	String reverseString = new StringBuilder(numberString).reverse().toString();
+    	return (numberString.equals(reverseString));   
+    }
 }

@@ -15,8 +15,27 @@ public class Problem4 implements RunEuler {
 
     /**
      * Rationale:  
+     * Counting down from 999 allows us to find the answer sooner.
+     * If we add a condition that b >= a, we can avoid checking the same numbers multiple times.
+     * We start b at 999 for each value of a, and only decrement b if it remains 
+     * greater than or equal to a.
      */
     public String run() {
-    	return "solution";
+    	int a = 999;
+    	int maxValue = -1;
+    	while (a >= 100){
+    		int b = 999;
+    		while ( b >= a ){
+    			if (a * b <= maxValue) {
+    				break;
+    			}
+    			if (Utility.isPalindrome(a * b)) {
+    				maxValue = a * b;
+    			}
+    			b--;    			
+    		}
+    		a--;
+    	}    	
+    	return Integer.toString(maxValue);
     }        
 }
